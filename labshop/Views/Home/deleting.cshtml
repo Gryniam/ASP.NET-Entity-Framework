@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "_Layout3";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>deleting</title>
+</head>
+<body>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.uid" name="TovarId" />
+        @{
+            foreach (var tov in ViewBag.tovars)
+            {
+                if (ViewBag.uid == tov.TovarId)
+                {
+                    <p>Назва товару</p>
+                    <input size="70" type="text" readonly value="@tov.TovarName" name="TovarName" />
+                    <br />
+                    <p>Ціна товару</p>
+                    <input type="text" readonly value="@tov.TovarPrice" name="TovarPrice" />
+                    <br />
+                    <input type="hidden" value="@tov.NumberOfPur" name="NumberOfPur" />
+                    foreach (var dvn in ViewBag.dwn)
+                    {
+                        if (tov.TovarName == dvn.TovarName)
+
+                        {
+                            <input type="hidden" value="@dvn.DownloadId" name="DownloadId" />
+                            
+                            <input type="hidden" size="100" value="@dvn.Link" name="Link" />
+                           
+                            <input type="hidden" size="100" value="@dvn.DemoLink" name="DemoLink" />
+                            <input type="hidden" value="@dvn.TovarName" name="TovarName" />
+                        }
+                    }
+                }
+            }
+        }
+        <input type="submit" value="Видалити" />
+    </form>
+</body>
+</html>

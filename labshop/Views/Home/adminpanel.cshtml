@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>adminpanel</title>
+</head>
+<body>
+    <h4>Список товарів</h4>
+    
+    <table>
+        <thead>
+            <tr>
+                <td><a href="adding">Додати товар</a></td>
+                <td>Ім'я товару&nbsp;</td>
+                <td>Ціна товару&nbsp;</td>
+                <td>Кількість покупок&nbsp;</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var tov in ViewBag.Tovars)
+                {
+                    <tr>
+                        <td>@tov.TovarName&nbsp;</td>
+                        <td>@tov.TovarPrice&nbsp;</td>
+                        <td>@tov.NumberOfPur&nbsp;</td>
+                        <td><a href="/Home/editing/@tov.TovarId">Редагувати</a><a>/</a></td>
+                        <td><a href="/Home/deleting/@tov.TovarId">Видалити</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h4>Користувачі</h4>
+    
+    <table>
+        <tbody>
+            @{
+                foreach (var kor in ViewBag.users)
+                {
+                    <tr>
+                        <td>@kor.UserName&nbsp;</td>
+                        <td>@kor.UserMail&nbsp;</td>
+                        <td><a href="/Home/deleteuser/@kor.UserId">Видалити</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h4>
+        Історія покупок
+    </h4>
+    <table>
+        <tbody>
+            @{
+                foreach (var ip in ViewBag.buytov)
+                {
+                    <tr>
+                        <td>@ip.UserMail&nbsp;</td>
+                        <td>@ip.TovarName&nbsp;</td>
+                        <td>@ip.DateTime&nbsp;</td>
+                        <td><a href="/Home/deleteorder/@ip.BuyTovarId">Видалити</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

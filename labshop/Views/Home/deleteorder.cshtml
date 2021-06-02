@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_Layout3";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>deleteorder</title>
+</head>
+<body>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.uid" name="BuyTovarId" />
+        @{
+            foreach (var btov in ViewBag.btov)
+            {
+                if (ViewBag.uid == btov.BuyTovarId)
+                {
+                    <input size="70" type="text" readonly value="@btov.UserMail" name="UserMail" />
+                    <br />
+                    <input size="50" type="text" readonly value="@btov.TovarName" name="TovarName" />
+                    <br />
+                    <input type="hidden" value="@btov.DateTime" name="DateTime" />
+                }
+            }
+        }
+        <input type="submit" value="Видалити" />
+    </form>
+</body>
+</html>

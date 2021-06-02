@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_Layout3";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>registerpage</title>
+</head>
+<body>
+
+    <h3>Реєстрація</h3>
+    <br />
+
+    <form method="post" action="">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Введіть назву товару</td>
+                    <td><input size="40" type="text" name="TovarName" /></td>
+                </tr>
+                <tr>
+                    <td>Введіть ціну товару</td>
+                    <td><input type="text" name="TovarPrice" /></td>
+
+                </tr>
+                <tr>
+                    <td><input type="hidden" value=0 name="NumberOfPur" /></td>
+                </tr>
+                <tr>
+                    <td>Введіть посилання на повну версію файлу (Google Drive та інше)</td>
+                    
+                    <td><input size="100" type="text" name="Link" /></td>
+                </tr>
+                <tr>
+                    <td>Введіть посилання на демо версію файлу (Google Drive та інше)</td>
+                    <td><input size="100" type="text" name="DemoLink" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Додати товар" /></td>
+
+                </tr>
+            </tbody>
+        </table>
+       
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_Layout3";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>deleteuser</title>
+</head>
+<body>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.uid" name="UserId" />
+        @{
+            foreach (var us in ViewBag.users)
+            {
+                if (ViewBag.uid == us.UserId)
+                {
+                    <input size="70" type="text" readonly value="@us.UserName" name="UserName" />
+                    <br />
+                    <input size="50"type="text" readonly value="@us.UserMail" name="UserMail" />
+                    <br />
+                    <input type="hidden" value="@us.UserPassword" name="UserPassword" />
+                }
+            }
+        }
+        <input type="submit" value="Видалити" />
+    </form>
+</body>
+</html>

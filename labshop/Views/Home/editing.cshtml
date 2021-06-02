@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_Layout3";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>editing</title>
+</head>
+<body>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.uid" name="TovarId" />
+        @{
+            foreach (var tov in ViewBag.tovars)
+            {
+                if (ViewBag.uid == tov.TovarId)
+                {
+                    <p>Ім'я товару</p>
+                    <input size="70" type="text" value="@tov.TovarName" name="TovarName" />
+                    <br />
+                    <p>Ціна товару</p>
+                    <input type="text" value="@tov.TovarPrice" name="TovarPrice" />
+                    <br />
+                    <input type="hidden" value="@tov.NumberOfPur" name="NumberOfPur" />
+                    foreach (var dvn in ViewBag.dwn)
+                    {
+                        if (tov.TovarName == dvn.TovarName)
+
+                        {
+                            <input type="hidden" value="@dvn.DownloadId" name="DownloadId" />
+                            <p>Посилання на повну версію товару(Google Drive та інші)</p>
+                            <input type="text" size="100" value="@dvn.Link" name="Link" />
+                            <p>Посилання на тестову версію товару(Google Drive та інші)</p>
+                            <input type="text" size="100" value="@dvn.DemoLink" name="DemoLink" />
+                            <input type="hidden" value="@dvn.TovarName" name="TovarName" />
+                        }
+                    }
+                }
+
+            }
+        }
+        <input type="submit" value="Редагувати" />
+    </form>
+</body>
+</html>

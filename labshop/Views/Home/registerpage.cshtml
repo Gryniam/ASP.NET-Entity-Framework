@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>registerpage</title>
+</head>
+<body>
+    @if (ViewBag.Message != "" && ViewBag.Message != null)
+    {
+       
+    <a>@ViewBag.Message</a>
+    }
+    <h3>Реєстрація</h3>
+    <br />
+
+    <form method="post" action="">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Введіть ім'я користувача</td>
+                    <td><input type="text" name="UserName" /></td>
+                </tr>
+                <tr>
+                    <td>Введіть пошту</td>
+                    <td><input type="text" name="UserMail" /></td>
+
+                </tr>
+                <tr>
+                    <td>Створіть пароль</td>
+                    <td><input type="text" name="UserPassword" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Зареєструватись" /></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <a href="/Home/loginpage">Увійти</a>
+    </form>
+</body>
+</html>
